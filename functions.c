@@ -780,25 +780,15 @@ void afficherCube()
             printf("\n");
 
             printf("  ");
-            affCarre(cube[2][0]);
-            affCarre(cube[2][1]);
-            affCarre(cube[3][0]);
-            affCarre(cube[3][1]);
-            affCarre(cube[4][0]);
-            affCarre(cube[4][1]);
-            affCarre(cube[5][0]);
-            affCarre(cube[5][1]);
+            for(int j=2;j<=5;j++)
+                for(int i=0;i<=1;i++)
+                    affCarre(cube[j][i]);
             printf("\n");
 
             printf("  ");
-            affCarre(cube[6][0]);
-            affCarre(cube[6][1]);
-            affCarre(cube[7][0]);
-            affCarre(cube[7][1]);
-            affCarre(cube[8][0]);
-            affCarre(cube[8][1]);
-            affCarre(cube[9][0]);
-            affCarre(cube[9][1]);
+            for(int j=6;j<=9;j++)
+                for(int i=0;i<=1;i++)
+                    affCarre(cube[j][i]);
             printf("\n");
 
             printf("      ");
@@ -833,48 +823,21 @@ void afficherCube()
             printf("\n");
 
             printf("  ");
-            affCarre(cube[3][0]);
-            affCarre(cube[3][1]);
-            affCarre(cube[3][2]);
-            affCarre(cube[4][0]);
-            affCarre(cube[4][1]);
-            affCarre(cube[4][2]);
-            affCarre(cube[5][0]);
-            affCarre(cube[5][1]);
-            affCarre(cube[5][2]);
-            affCarre(cube[6][0]);
-            affCarre(cube[6][1]);
-            affCarre(cube[6][2]);
+            for(int j=3;j<=6;j++)
+                for(int i=0;i<=2;i++)
+                    affCarre(cube[j][i]);
             printf("\n");
 
             printf("  ");
-            affCarre(cube[7][0]);
-            affCarre(cube[7][1]);
-            affCarre(cube[7][2]);
-            affCarre(cube[8][0]);
-            affCarre(cube[8][1]);
-            affCarre(cube[8][2]);
-            affCarre(cube[9][0]);
-            affCarre(cube[9][1]);
-            affCarre(cube[9][2]);
-            affCarre(cube[10][0]);
-            affCarre(cube[10][1]);
-            affCarre(cube[10][2]);
+            for(int j=7;j<=10;j++)
+                for(int i=0;i<=2;i++)
+                    affCarre(cube[j][i]);
             printf("\n");
 
             printf("  ");
-            affCarre(cube[11][0]);
-            affCarre(cube[11][1]);
-            affCarre(cube[11][2]);
-            affCarre(cube[12][0]);
-            affCarre(cube[12][1]);
-            affCarre(cube[12][2]);
-            affCarre(cube[13][0]);
-            affCarre(cube[13][1]);
-            affCarre(cube[13][2]);
-            affCarre(cube[14][0]);
-            affCarre(cube[14][1]);
-            affCarre(cube[14][2]);
+            for(int j=11;j<=14;j++)
+                for(int i=0;i<=2;i++)
+                    affCarre(cube[j][i]);
             printf("\n");
 
             printf("        ");
