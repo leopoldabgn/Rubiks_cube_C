@@ -1,6 +1,5 @@
 # Rubiks_cube_C
 
-
 ## Compilation
 ### Linux :
 make
@@ -20,7 +19,8 @@ You can choose :
 - 2x2
 - 3x3  
 
-It's really intuitive.
+It's really intuitive.  
+![rubiks_c_1](https://user-images.githubusercontent.com/95108507/179314844-1a8aa37b-9b75-489e-a9c9-50f92e0db550.png)
 
 ### Keyboard
 Check the move notation : https://en.wikipedia.org/wiki/Rubik%27s_Cube#Move_notation
@@ -46,9 +46,11 @@ I developped an AI to solve the rubiks cube 2x2. But it only works for rubik's c
 Steps :
 - Solve white face
 - OLL
-- PLL
+- PLL  
 Finally, it shows the sequence of movements to solve it. In the future, I may add a mode to add a scramble. Because, right now you can just solve a random scramble.  
 Well, to solve a scramble, you just have to press :  
 ```
 I (Solve a 2x2 or 3x3 corners)
 ```
+![rubiks_c_2](https://user-images.githubusercontent.com/95108507/179314784-177731e7-55f9-4b15-8235-c0b3b663509e.png)
+
