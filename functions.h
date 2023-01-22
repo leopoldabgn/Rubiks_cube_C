@@ -69,7 +69,8 @@ void lancer_PLL();
 void afficherCube();
 void affCarre(int couleurcarre);
 int nombreAleatoire(int nombreMax);
-void reset_cube();
+void reset_cube(int with_colors);
+void ask_scramble();
 
 //FONCTIONS CHANGER COULEUR CONSOLE
 #ifdef OS_WINDOWS
@@ -105,5 +106,6 @@ void reset_cube();
 #endif
 
 void setColor(int t,int f);
+int getColor(char c);
 
 #endif // FUNCTIONS_H_INCLUDED

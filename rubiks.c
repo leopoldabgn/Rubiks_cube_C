@@ -27,7 +27,7 @@ int main()
     srand(time(NULL)); //IMPORTANT POUR LES NOMBRES ALEATOIRES
 
     puts("(Press 'q' to stop the program)");
-
+    
     while(gamemode != 38 && gamemode != '1' && gamemode != 130 &&
           gamemode != 195 && gamemode != '2')    // Correspond aux touches 1 et 2, lorsque MAJ n'est pas enfonce
     {
@@ -47,8 +47,28 @@ int main()
         gamemode = 1;
     }
 
-    reset_cube();
-
+    printf("Voulez-vous rentrer la configuration de votre cube ? (y/n)\n");
+    char c;
+    while((c = get_char()) != 'y' && c != 'n')
+        ;
+    if(c == 'y')
+    {
+        reset_cube(0);
+        ask_scramble();
+    }
+    else 
+    {
+        reset_cube(1);
+        printf("\nMelanger le rubiks cube ? o/n\n");
+        if (get_char() == 'o')
+            scramble(20);
+        else
+        {
+            setColor(BLANC,NOIR);
+            clear();
+            afficherCube();
+        }
+    }
     /*
         do
         {
@@ -63,19 +83,7 @@ int main()
 
         afficherCube();
     */
-    
-    printf("\nMelanger le rubiks cube ? o/n\n");
 
-    if (get_char() == 'o')
-    {
-        scramble(20);
-    }
-    else
-    {
-        setColor(BLANC,NOIR);
-        clear();
-        afficherCube();
-    }
     /*
         do
         {
@@ -88,6 +96,7 @@ int main()
         display_solve();
 
     */
+
     lancer_jeu();
 
     return 0;
@@ -220,7 +229,7 @@ void lancer_jeu()
             afficherCube();
             break;
         case 'a':
-            reset_cube();
+            reset_cube(1);
             break;
         case 'p':
             for(int i=0;i<1000;i++)
@@ -281,14 +290,13 @@ void scramble(int nombreMax)
     char choix[1] = {0};
     char melange[nombreMax];
 
-    reset_cube();
+    reset_cube(1);
 
     for(int i=0;i<nombreMax;i++)
     {
         alea = nombreAleatoire(6);
-
-            switch(alea)
-            {
+        switch(alea)
+        {
             case 1:
                 mouv_F();
                 choix[0] = 'F';
@@ -325,24 +333,49 @@ void scramble(int nombreMax)
                 puts("B");
                 afficherCube();
                 break;
-            }
-
-    melange[i] = choix[0];
-
+        }
+        melange[i] = choix[0];
     }
 
     for(int i=0;i<1000;i++)
-    {
         solution[i] = 0;
-    }
 
     position = 0;
 
+    printf("\nScramble : ");
+    for(int i = 0;i<nombreMax;i++)
+        printf("%c",melange[i]);
+    puts("");
+    afficherCube();
+}
 
-        printf("\nScramble : ");
-        for(int i = 0;i<nombreMax;i++) printf("%c",melange[i]);
-        puts("");
-        afficherCube();
+void ask_scramble() 
+{
+    clear();
+    afficherCube();
 
+    char c;
+
+    int col = 2, line = 12;
+    if(gamemode == 1) {
+        col = 3;
+        line = 18;
+    }
+
+    for(int j=0;j<line;j++)
+    {
+        for(int i=0;i<col;i++)
+        {
+            printf("Appuyez pour colorier la prochaine case\n\nrouge (r), vert (g), orange (o) : violet\nbleu (b), blanc (w), jaune (y)\n");
+            c = 0;
+            while(c != 'r' && c != 'g' && c != 'o' && c != 'b' && c != 'w' && c != 'y')
+                c = get_char();
+            puts("");
+            cube[j][i] = getColor(c);
+            clear();
+            afficherCube();
+            clear();
+        }
+    }
 
 }

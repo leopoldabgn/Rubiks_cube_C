@@ -756,6 +756,10 @@ int nombreAleatoire(int nombreMax)
 
 void affCarre(int couleurcarre)
 {
+    if(couleurcarre < 0) {
+        printf("X ");
+        return;
+    }
     int colors[] = {VERT, ROSE_FLUO, BLEU, ROUGE, JAUNE_FLUO, BLANC};
     setColor(NOIR, colors[couleurcarre-1]);
     printf("  ");
@@ -913,19 +917,23 @@ void display_solve()
 
 }
 
-void reset_cube()
+void reset_cube(int with_colors)
 {
 
     if(gamemode == 0)
     {
 
-        for(int j=0;j<2;j++)
+        if(!with_colors)
         {
-            for(int i=0;i<2;i++)
-            {
-                cube[j][i] = 6;
-            }
+            for(int j=0;j<12;j++)
+                for(int i=0;i<2;i++)
+                    cube[j][i] = -1;
+            return;
         }
+
+        for(int j=0;j<2;j++)
+            for(int i=0;i<2;i++)
+                cube[j][i] = 6;
 
         for(int i=0;i<2;i++)
         {
@@ -950,6 +958,14 @@ void reset_cube()
     }
     else if(gamemode == 1)
     {
+
+        if(!with_colors)
+        {
+            for(int j=0;j<18;j++)
+                for(int i=0;i<3;i++)
+                    cube[j][i] = -1;
+            return;
+        }
 
         for(int j=0;j<3;j++)
         {
@@ -1011,4 +1027,23 @@ void setColor(int t,int f)
         printf("\033[0%dm", f+10); // f = background
     }
     #endif
+}
+
+int getColor(char c)
+{
+    switch(c) 
+    {
+        case 'r':
+            return 4;
+        case 'w':
+            return 6;
+        case 'b':
+            return 3;
+        case 'g':
+            return 1;
+        case 'y':
+            return 5;
+        default: // orange
+            return 2;
+    }
 }
